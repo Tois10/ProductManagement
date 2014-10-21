@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<h:inputHidden value="#{productManagementController.productId}"
+			converter="javax.faces.Long" />
+		<!-- 		display error message here -->
+		<h:messages />
+		<center>
+			<p>
+				Description:
+				<h:inputText value="#{productManagementController.description}"
+					required="true" label="Category Product">
+				</h:inputText>
+				<br /> Name Product:
+				<h:inputText value="#{productManagementController.name}"
+					required="true" label="Name Product">
+				</h:inputText>
+				<br /> Price:
+				<h:inputText value="#{productManagementController.price}"
+					required="true" label="Price Product">
+					<f:validateLength minimum="5" maximum="8">
+					</f:validateLength>
+				</h:inputText>
+				<br /> Stock:
+				<h:inputText value="#{productManagementController.stok}"
+					required="true" label="Stock Product" />
+			</p>
+			<p>
+			Category:
+			<h:selectOneMenu value="#{productManagementController.categoryId}" converter="javax.faces.Long">
+			<f:selectItem itemValue="1" itemLabel="Sepatu"/>
+			<f:selectItem itemValue="2" itemLabel="Buku Pendidikan"/>
+			<f:selectItem itemValue="6" itemLabel="Elektronik"/>
+			<f:selectItem itemValue="23" itemLabel="Buku Cerita"/>
+			<f:selectItem itemValue="25" itemLabel="Rak Buku"/>
+			<f:selectItem itemValue="26" itemLabel="Smartphone"/>
+			<f:selectItem itemValue="27" itemLabel="Notebook"/>
+			<f:selectItem itemValue="28" itemLabel="Smart Wacth"/>
+			</h:selectOneMenu>
+			<br/>
+			Suplier :
+			<h:selectOneMenu value="#{productManagementController.suplierId}" converter="javax.faces.Long">
+			<f:selectItem itemValue="1" itemLabel="Apple"/>
+			<f:selectItem itemValue="2" itemLabel="Lenovo"/>
+			<f:selectItem itemValue="3" itemLabel="Samsung"/>
+			<f:selectItem itemValue="4" itemLabel="PT SWALLOW JAYA ABADI"/>
+			</h:selectOneMenu>
+			</p>
+			<h:link outcome="form"><h:commandButton action="#{productManagementController.save}"
+				value="Save" /> </h:link>
+		</center>
+	</h:form>
+</body>
+</html>
